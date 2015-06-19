@@ -1,0 +1,108 @@
+<head>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-30136587-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script');
+          ga.src = 'https://www.google-analytics.com/ga.js';
+          var s = document.scripts[0];
+          s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+
+
+<body>
+    <header>
+        <div class="navbar navbar-inverse navbar-static-top hidden-print">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle Naigation</span>
+                        <i class="fa fa-bars fa-lg"></i>
+                    </button>
+                    <a class="navbar-brand" href="#"><i class="fa fa-flag"></i> Time Traveller</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="hidden-sm">
+                            <a class="header" href="#">Home</a>
+                        </li>
+                        <li class="hidden-sm">
+                            <a href="#">Get Started</a>
+                        </li>
+                        <li class="hidden-sm">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="hidden-sm">
+                            <a href="#">Contact us</a>
+                        </li>
+                        <li class="hidden-xs hidden-md hidden-lg">
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="/signin.html">Sign in</a></li>
+                        <li><a href="#">Sign up</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- nav -->
+    </header>
+    <section>
+        <div class="jumbotron jumbotron-carousel hidden-print">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 text-center">
+                        <h1>
+                            Time Traveller
+                        </h1>
+                        <p>YOUR FOOTPRINTS IN THE UNIVERSE</p>
+                        <div class="actions">
+                            <a class="btn btn-default btn-lg" href="/getstarted/">
+                                <i class="fa fa-thumbs-o-up"> Get Started</i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div id="icon-carousel" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="active item">
+                                    <i class="fa fa-flag"></i>
+                                </div>
+                                <div class="item">
+                                    <i class="fa fa-birthday-cake"></i>
+                                </div>
+                            </div>
+                        </div> <!-- carousel in jumbotron -->
+                        <!--                    Carousel Nav-->
+                        <a class="carousel-control left" href="#icon-carousel" data-slide="prev"
+                         onclick="_gaq.push(['_trackEvent', 'iconCarousel', 'Prev']);">
+                             <i class="fa fa-arrow-circle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#icon-carousel" data-slide="next"
+                         onclick="_gaq.push(['_trackEvent', 'iconCarousel', 'Next' ]);">
+                             <i class="fa fa-arrow-circle-right"></i>
+                         </a>  
+                    </div>
+                </div>
+            </div> <!-- banner 1st in jumbotron -->
+
+        </div>
+    </section>
+    
+    <section>
+        test
+    </section>
+</body>
