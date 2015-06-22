@@ -247,3 +247,325 @@ a:hover {
 .carousel-caption .btn {
   text-shadow: none;
 }
+
+#map {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+.device {
+  display: inline-block;
+  position: relative;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+/* device-browser */
+.device.device-browser .device-content {
+  border-radius: 0 0 10px 10px;
+  max-height: 400px;
+}
+
+#map, #video {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+/* Re-usable device frames
+------------------------------------------------------- */
+.device {
+  display: inline-block;
+  position: relative;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+/* device-browser */
+.device.device-browser .device-content {
+  border-radius: 0 0 10px 10px;
+  max-height: 400px;
+}
+
+.device.device-browser:before {
+  content: '';
+  display: block;
+  position: relative;
+  height: 30px;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  background-color: #ddd;
+  }
+  .device.device-browser.dark:before {
+    background-color:#374f59;
+    }
+
+.device.device-browser .device-details,
+.device.device-browser .device-details:after,
+.device.device-browser .device-details:before {
+  z-index: 10;
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #3c4e5a;
+  }
+  .device.device-browser.dark .device-details {
+    background-color:#fff;
+    }
+
+.device.device-browser .device-details:after,
+.device.device-browser .device-details:before {
+  content: '';
+  left: 20px;
+  top: 0;
+  background-color: #3887be;
+}
+.device.device-browser .device-details:before {
+  left: 40px;
+  background-color: #8a8acb;
+}
+
+/* desktop */
+.device.device-desktop {
+  border-radius: 10px 10px 0 0;
+  border-right: 20px solid #374f59;
+  border-left: 20px solid #374f59;
+  border-top: 20px solid #374f59;
+  border-bottom: 10px solid #374f59;
+  /* offset absolute positioned stand */
+  margin-bottom: 100px;
+}
+
+.device.device-desktop .device-content {
+  max-height: 500px;
+}
+
+.device.device-desktop:after {
+  content: '';
+  display: block;
+  bottom: -40px;
+  left: -20px;
+  right: -20px;
+  position: absolute;
+  height: 40px;
+  background-color: #ddd;
+  border-radius: 0 0 15px 15px;
+}
+
+.device.device-desktop:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 20px;
+  bottom: -28px;
+  background-color: rgba(0,0,0,.25);
+  border-radius: 50%;
+  width: 20px;
+  z-index: 10;
+}
+
+.device.device-desktop .device-details {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-bottom: 60px solid #ddd;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  height: 0;
+  width: 33.3333%;
+  bottom: -100px;
+}
+
+.device.device-desktop .device-details:before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  height: 0;
+  top: 0;
+  left: -3px;
+  right: -3px;
+  border-bottom: 20px solid #ccc;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.device.device-desktop .device-details:after {
+  content: '';
+  display: block;
+  bottom: -70px;
+  left: -25px;
+  right: -25px;
+  position: absolute;
+  height: 10px;
+  border-top: 5px solid rgba(255,255,255,.5);
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+/* tablet */
+.device.device-tablet-v {
+  border-radius: 20px;
+  border-right: 20px solid #374f59;
+  border-left: 20px solid #374f59;
+  border-top: 60px solid #374f59;
+  border-bottom: 60px solid #374f59;
+}
+
+.device.device-tablet-v .device-content {
+  max-height: 500px;
+}
+
+.device.device-tablet-v:before,
+.device.device-tablet-v:after {
+  content: '';
+  z-index: 10;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -35px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,.25);
+}
+
+.device.device-tablet-v:after {
+  top: auto;
+  bottom: -45px;
+  height: 30px;
+  width: 30px;
+}
+
+/* tablet h */
+.device.device-tablet-h {
+  border-radius: 20px;
+  border-right: 40px solid #374f59;
+  border-left: 60px solid #374f59;
+  border-top: 20px solid #374f59;
+  border-bottom: 20px solid #374f59;
+}
+
+.device.device-tablet-h .device-content {
+  max-height: 800px;
+}
+
+.device.device-tablet-h:before,
+.device.device-tablet-h:after {
+  content: '';
+  z-index: 10;
+  display: block;
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,.25);
+}
+
+.device.device-tablet-h:after {
+  top: 50%;
+  left: -45px;
+  height: 30px;
+  width: 30px;
+}
+
+.device.device-tablet-h:before  {
+   top: 50%;
+    right: -23px;
+}
+
+/* phone */
+.device.device-phone-v {
+  border-radius: 30px;
+  border-right: 25px solid #374f59;
+  border-left: 25px solid #374f59;
+  border-top: 70px solid #374f59;
+  border-bottom: 70px solid #374f59;
+}
+
+.device.device-phone-v .device-content {
+  max-height: 400px;
+}
+
+.device.device-phone-v:before,
+.device.device-phone-v:after {
+  content: '';
+  z-index: 10;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -35px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,.25);
+}
+
+.device.device-phone-v:after {
+  top: auto;
+  bottom: -50px;
+  height: 30px;
+  width: 30px;
+}
+
+/* android phone */
+.device.device-phone-android {
+  border-radius: 30px;
+  border-top: 50px solid #dddddd;
+  border-bottom: 50px solid #dddddd;
+}
+
+.device.device-phone-android .device-content {
+  max-height: 400px;
+}
+
+.device.device-phone-android:after,
+.device.device-phone-android:before {
+  content: '';
+  z-index: 10;
+  display: block;
+  position: absolute;
+  margin: auto;
+  width: auto;
+  left: 20px;
+  right: 20px;
+  border-bottom: 5px dotted rgba(0,0,0,.25);
+}
+
+.device.device-phone-android:before {
+  right: 50px;
+  top: -25px; }
+
+.device.device-phone-android:after { bottom: -25px; }
+
+.device.device-phone-android .device-details {
+  z-index: 10;
+  display: block;
+  position: absolute;
+  right: 20px;
+  margin: auto;
+  top: -30px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,.25);
+}
+
+.center {
+    text-align: center;
+}

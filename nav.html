@@ -8,6 +8,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/nav.css">
+
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+ 
     <script>
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-30136587-1']);
@@ -20,12 +24,15 @@
           s.parentNode.insertBefore(ga, s);
         })();
     </script>
+    <style>
+        #map { position:relative; top:0; bottom:0; width:50%; height: 60% }
+    </style>
 </head>
 
 
 <body>
     <header>
-        <div class="navbar navbar-inverse navbar-static-top hidden-print">
+        <div class="navbar navbar-inverse navbar-static-top navbar-fixed-top hidden-print">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
@@ -103,6 +110,104 @@
     </section>
     
     <section>
-        test
+        <div class="row center">
+            <h1>
+                Data Virtualization is interesting
+            </h1>
+        </div>
+        <div id="video" class="row">
+            <div class="device device-browser">
+                <video id="station-video" width="1000px" height="625px" autoplay="autoplay" preload="auto" loop class="device-content" poster="images/Canada-physical-map.gif">
+                    <source src="video/fly_to_ottawa.m4v" type="video/mp4">
+                </video>
+                <div class="device-details"></div>
+            </div>
+
+        </div>
     </section>
+<hr>
+    <section>  <!-- Map -->
+        <div id='map'></div>
+        <div class="container">
+            <a href='#' id='geolocate' class='btn btn-primary'>Find me</a>
+        </div>
+    </section>
+    <script>
+    function getStations(position, numStation) {
+        $.get("http://129.41.145.159:3000/api/station_list?filter[where][province][like]=ON&filter[where][position][near]="+position.lat+","+position.lng+"&filter[limit]="+numStation, function(data) {
+            data.forEach(function(item) {
+                setInterval(function() {
+                    var marker = L.marker(new L.LatLng(item.position[0], item.position[1]), {
+                        icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
+                        title: item.name
+                    });
+
+                    marker.addTo(map);
+                }, 1000);
+            });
+        });
+    }
+    
+    L.mapbox.accessToken = 'pk.eyJ1Ijoic29jY2VyaGFvdGlhbiIsImEiOiJQMTlDUmlzIn0.A3HXA0m5oBt5oIy6JoDWsw';
+
+    var map = L.mapbox.map('map', 'mapbox.streets');
+    var geolocate = document.getElementById('geolocate');
+    var myLayer = L.mapbox.featureLayer().loadURL('config.json').addTo(map);
+//    myLayer.loadURL('config.json');
+    var position;
+    
+    if (!navigator.geolocation) {
+        geolocate.innerHTML = 'Geolocation is not available';
+    } else {
+        geolocate.onclick = function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            map.locate();
+        };
+    }
+
+
+    // Once we've got a position, zoom and center the map
+    // on it, and add a single marker.
+    map.on('locationfound', function(e) {
+        map.fitBounds(e.bounds);
+    
+        position = e.latlng;
+        myLayer.setGeoJSON({
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [e.latlng.lng, e.latlng.lat]
+            },
+            properties: {
+                'title': 'Here I am!',
+                'marker-color': '#ff8888',
+                'marker-symbol': 'star'
+            }
+        });
+        
+//        $.get('config.json', function(geojson) {
+//            myLayer.setGeoJSON(geojson);
+//        });
+
+        // And hide the geolocation button
+        //geolocate.parentNode.removeChild(geolocate);
+        
+        getStations(position, numStation);
+//        myLayer.on('ready', function() {
+//            // featureLayer.getBounds() returns the corners of the furthest-out markers,
+//            // and map.fitBounds() makes sure that the map contains these.
+//            map.fitBounds(myLayer.getBounds());
+//        });
+//        myLayer.loadURL('config.json').addTo(map);
+    });
+
+            
+
+    // If the user chooses not to allow their location
+    // to be shared, display an error message.
+    map.on('locationerror', function() {
+        geolocate.innerHTML = 'Position could not be found';
+    });
+    </script>
 </body>

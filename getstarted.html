@@ -1,0 +1,35 @@
+<html>
+    <head>
+    
+        <meta charset=utf-8 />
+        <title>Get Started</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        
+        <style>
+            #map { position:absolute; top:0; bottom:0; width:100%; height: 90% }
+        </style>
+         
+    </head>
+    <body>
+        <div id='map'></div>
+        <script>
+            // Provide your access token
+            L.mapbox.accessToken = 'pk.eyJ1Ijoic29jY2VyaGFvdGlhbiIsImEiOiJQMTlDUmlzIn0.A3HXA0m5oBt5oIy6JoDWsw';
+            // Create a map in the div #map
+            var map = L.mapbox.map('map', 'soccerhaotian.m58eoog1');
+            
+            map.on("click", function(e) {
+                console.log(e.latlng.toString());
+                L.marker(e.latlng).addTo(map);
+            });
+        </script>
+    </body>
+</html>
